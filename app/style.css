@@ -1,0 +1,432 @@
+/* Leonida Trophy Ledger — paper theme, own look, no artwork. */
+:root {
+  --paper: #faf7f0;
+  --card: #ffffff;
+  --ink: #1d2129;
+  --ink-soft: #5b6470;
+  --line: #e3ddd0;
+  --teal: #0f766e;
+  --teal-dark: #0b5e57;
+  --teal-soft: #e6f4f2;
+  --amber: #b45309;
+  --amber-soft: #fdf1e3;
+  --danger: #b91c1c;
+  --danger-soft: #fdecec;
+  --gold: #8a6d1b;
+  --gold-soft: #f7ecd0;
+  --silver: #5f6b7a;
+  --silver-soft: #eef1f4;
+  --bronze: #7c4a21;
+  --bronze-soft: #f6e8db;
+  --platinum: #4b5563;
+  --platinum-soft: #eef2f7;
+  --radius: 8px;
+  --radius-lg: 14px;
+  --shadow: 0 1px 3px rgba(29, 33, 41, 0.12);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.25;
+  margin: 0 0 8px;
+}
+
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.15rem; }
+
+a { color: var(--teal); }
+a:hover { color: var(--teal-dark); }
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid var(--teal);
+  background: var(--teal);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 6px 12px;
+}
+
+button:hover { background: var(--teal-dark); }
+
+button.secondary {
+  background: var(--card);
+  color: var(--teal);
+}
+
+input, select {
+  font: inherit;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 6px 8px;
+}
+
+/* Header */
+.site-header {
+  background: var(--card);
+  border-bottom: 2px solid var(--teal);
+  padding: 16px 20px;
+}
+
+.header-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+  align-items: flex-start;
+}
+
+.title-block { flex: 1 1 320px; }
+.title-block h1 { font-size: 1.9rem; margin-bottom: 4px; }
+.subtitle { margin: 0; color: var(--ink-soft); font-size: 0.92rem; }
+
+.progress-block { flex: 1 1 280px; min-width: 240px; }
+.progress-line {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.progress-bar {
+  height: 12px;
+  background: var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  width: 0;
+  background: var(--teal);
+  border-radius: 999px;
+  transition: width 0.25s ease;
+}
+.grade-counters {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+.mini-counter {
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.spoiler-toggle {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Tabs */
+.tabs {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 12px 20px 0;
+  display: flex;
+  gap: 8px;
+}
+.tab {
+  text-decoration: none;
+  color: var(--ink-soft);
+  font-weight: 700;
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-bottom: none;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: #f1ece2;
+}
+.tab.active {
+  color: var(--teal-dark);
+  background: var(--card);
+  border-color: var(--teal);
+  border-bottom: 2px solid var(--card);
+  margin-bottom: -2px;
+}
+
+/* Main layout */
+main {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+
+.view {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+.view-intro { color: var(--ink-soft); max-width: 72ch; }
+.save-warning {
+  background: var(--amber-soft);
+  border: 1px solid #e7c48a;
+  border-radius: var(--radius);
+  padding: 10px 14px;
+}
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  align-items: flex-end;
+  margin-bottom: 12px;
+}
+.toolbar-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+.toolbar-field input[type="search"] { min-width: 220px; }
+.showing {
+  margin-left: auto;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  align-self: center;
+}
+.online-note {
+  background: var(--teal-soft);
+  border: 1px solid #bfe3de;
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  margin: 0 0 12px;
+}
+
+/* Tracker layout: list left, detail right */
+.tracker-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(280px, 5fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.trophy-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.trophy-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  cursor: pointer;
+}
+.trophy-row:hover { border-color: var(--teal); }
+.trophy-row.selected {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 2px var(--teal-soft);
+}
+.trophy-row.earned { background: #f4faf8; }
+.trophy-row.earned .trophy-name { text-decoration: line-through; text-decoration-thickness: 1px; }
+
+.trophy-check {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+  accent-color: var(--teal);
+  cursor: pointer;
+}
+
+.trophy-main { flex: 1 1 auto; min-width: 0; }
+.trophy-name { font-weight: 700; margin: 0 0 2px; }
+.trophy-desc { margin: 0; color: var(--ink-soft); font-size: 0.92rem; }
+.trophy-meta {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+.trophy-count { font-size: 0.85rem; font-weight: 700; color: var(--teal-dark); }
+
+.badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.badge.grade-platinum { background: var(--platinum-soft); color: var(--platinum); }
+.badge.grade-gold { background: var(--gold-soft); color: var(--gold); }
+.badge.grade-silver { background: var(--silver-soft); color: var(--silver); }
+.badge.grade-bronze { background: var(--bronze-soft); color: var(--bronze); }
+.badge.kind { background: var(--teal-soft); color: var(--teal-dark); }
+.badge.hidden-badge { background: #ece9e2; color: var(--ink-soft); }
+.badge.missable-badge { background: var(--danger-soft); color: var(--danger); }
+.badge.atrisk-badge { background: var(--amber-soft); color: var(--amber); }
+.badge.unconfirmed-badge { background: var(--amber-soft); color: var(--amber); }
+
+.spoiler-hidden-name,
+.spoiler-hidden-desc { color: var(--ink-soft); font-style: italic; }
+
+.empty-list {
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+/* Detail panel */
+.detail-panel {
+  position: sticky;
+  top: 12px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+}
+.detail-empty { color: var(--ink-soft); margin: 0; }
+.detail-panel h3 { font-size: 1.3rem; }
+.detail-desc { color: var(--ink-soft); margin: 0 0 10px; }
+.detail-guide { margin: 12px 0; }
+.detail-guide p { margin: 0; }
+.detail-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 14px 0 4px;
+}
+.detail-sources { list-style: none; margin: 0; padding: 0; }
+.detail-sources li { margin: 2px 0; }
+.detail-sources a { word-break: break-all; }
+.detail-missable {
+  background: var(--danger-soft);
+  border: 1px solid #f0b4b4;
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  margin: 12px 0;
+}
+.detail-unconfirmed {
+  background: var(--amber-soft);
+  border: 1px solid #e7c48a;
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  margin: 12px 0;
+}
+.detail-mark {
+  width: 100%;
+  margin-top: 14px;
+}
+
+/* Roadmap */
+.roadmap-list { list-style: none; margin: 0; padding: 0; }
+.roadmap-stage {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  background: var(--paper);
+}
+.roadmap-stage h3 { margin-bottom: 4px; }
+.roadmap-stage p { margin: 4px 0 10px; color: var(--ink-soft); }
+.stage-progress { font-weight: 700; color: var(--teal-dark); }
+.stage-trophies {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.stage-trophies li {
+  font-size: 0.85rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+.stage-trophies li.done { background: var(--teal-soft); border-color: #bfe3de; }
+
+/* Missables */
+.missable-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.missable-card {
+  border: 1px solid #f0b4b4;
+  background: var(--danger-soft);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+}
+.missable-card.atrisk {
+  border-color: #e7c48a;
+  background: var(--amber-soft);
+}
+.missable-card h3 { margin-bottom: 6px; }
+.missable-card p { margin: 6px 0; }
+
+/* About / data */
+.about {
+  margin-top: 24px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+.about-meta { color: var(--ink-soft); font-size: 0.88rem; }
+.data-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.data-note { font-size: 0.88rem; color: var(--teal-dark); }
+
+/* Loading */
+.loading { padding: 30px 0; text-align: center; color: var(--ink-soft); }
+.loading-fallback { color: var(--danger); max-width: 60ch; margin: 12px auto 0; }
+
+/* Narrow screens */
+@media (max-width: 900px) {
+  .tracker-layout { grid-template-columns: 1fr; }
+  .detail-panel { position: static; }
+  .header-inner { flex-direction: column; }
+  .showing { margin-left: 0; }
+}
+
+/* Print: keep it readable on paper */
+@media print {
+  .header-actions, .toolbar, .tabs, .data-actions { display: none; }
+  body { background: #fff; }
+  .view, .about { box-shadow: none; }
+}
